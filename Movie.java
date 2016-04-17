@@ -12,7 +12,7 @@ public class Movie
     int rating;
 
     void playIt(){
-        System.out.println("Playing the movie");
+        System.out.println("Playing the movie "+title);
 
     }
 }
