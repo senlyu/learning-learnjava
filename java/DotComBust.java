@@ -7,16 +7,16 @@
 import java.util.*;
 public class DotComBust
 {
-    private GameHelper helper=new GameHelper();
-    private ArrayList<DotCom> dotComsList=new ArrayList<DotCom>():
-    private int numOfGuess=0;
+    private GameHelper helper= new GameHelper();
+    private ArrayList<DotCom> dotComsList=new ArrayList<DotCom>();
+    private int numOfGuess= 0;
 
     private void setUpGame(){
-       DotCom one =new DotCom();
+       DotCom one = new DotCom();
        one.setName("Pets.com");
-       DotCom two =new DotCom();
+       DotCom two = new DotCom();
        two.setName("eTogys.com");
-       DotCom three =new DotCom();
+       DotCom three = new DotCom();
        three.setName("Go2.com");
        dotComsList.add(one);
        dotComsList.add(two);
@@ -27,22 +27,22 @@ public class DotComBust
        System.out.println("Try to sink them all in the fewest number of guess");
 
        for (DotCom dotComToSet:dotComsList){
-           ArrayList<String> newLocation=helper.placeDotCom(3);
+           ArrayList<String> newLocation= helper.placeDotCom(3);
            dotComToSet.setLocationCells(newLocation);
        }
     }
     private void startPlaying(){
-        while(!dotComList.isEmpty()){
-            String userGuess=help.getUserInpiy("Enter a guess");
+        while(!dotComsList.isEmpty()){
+            String userGuess= helper.getUserInput("Enter a guess");
             checkUserGuess(userGuess);
         }
         finishGame();
     }
     private void checkUserGuess(String userGuess){
-        numOfGuesses++;
-        String result="miss";
+        numOfGuess++;
+        String result= "miss";
         for (DotCom dotComToTest:dotComsList){
-            result=dotComToTest.checkYourself(userGuess);
+            result= dotComToTest.checkYourself(userGuess);
             if (result.equals("hit")){
                 break;
             }
@@ -56,16 +56,16 @@ public class DotComBust
     }
     private void finishGame(){
         System.out.println("All Dot Coms are dead! Your stock is now worthless.");
-        if (numOfGuesses<=18){
-            System.out.println("It only took you "+numOfGuesses+" guesses.");
+        if (numOfGuess<= 18){
+            System.out.println("It only took you "+numOfGuess+" guesses.");
             System.out.println(" You got out before your options sank.");
         }else{
-            System.out.println("Took you long enough. "+numOfGuesses+" guesses.");
+            System.out.println("Took you long enough. "+numOfGuess+" guesses.");
             System.out.println("Fish are dancing with your options.");
         }
     }
-    public static void main(Sting[] args){
-        DotComBust game=new DotComBust();
+    public static void main(String[] args){
+        DotComBust game= new DotComBust();
         game.setUpGame();
         game.startPlaying();
     }
